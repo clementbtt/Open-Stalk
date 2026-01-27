@@ -1,0 +1,15 @@
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 2px 0;
+}
+
+.tag-rss { background-color: #ffe0b2; color: #ff6f00; } 
+.tag-api-sociale { background-color: #bbdefb; color: #1976d2; } 
+.tag-api-technique { background-color: #e0e0e0; color: #424242; } 
+.tag-web-scraper { background-color: #c8e6c9; color: #388e3c; } 
+.tag-api-key { background-color: #ffccbc; color: #d84315; }

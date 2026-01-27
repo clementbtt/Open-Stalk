@@ -1,0 +1,53 @@
+.boite-grise {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+
+.mon-input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #aaa;
+}
+
+
+.bouton-add {
+    background-color: #eee;
+    border: 1px solid #888;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.bouton-add:hover {
+    background-color: #ddd;
+}
+
+
+.choix-api {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.bouton-go {
+    background-color: #09346b;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.bouton-go:hover {
+    background-color: #0056b3;
+}

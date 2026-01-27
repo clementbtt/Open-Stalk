@@ -1,0 +1,36 @@
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--color-primary);
+
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #000547;
+}
+
+.btn-full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-full-width .icon {
+    margin-right: 10px;
+    font-size: 1.3rem;
+}

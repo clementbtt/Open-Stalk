@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="page-header">
+    <h1>Toutes mes Sources</h1>
+</header>
+<div class="data-table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+                <th>Campagne</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in sources %}
+            <tr>
+                <td style="word-break: break-all;">{{ s[0] }}</td>
+                <td><span class="tag">{{ s[1] }}</span></td>
+                <td>{{ s[2] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Aucune source trouvée pour cet utilisateur.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

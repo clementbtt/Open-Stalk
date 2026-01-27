@@ -1,0 +1,25 @@
+main {
+    flex-grow: 1;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1400px;
+    background-color: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+    background-color: #e9ecef;
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-md);
+    border-top: 1px solid #dcdcdc;
+}

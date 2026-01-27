@@ -1,0 +1,36 @@
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+}
+
+nav a:hover, nav a.active {
+    color: var(--color-primary);
+    background-color: rgba(0, 123, 255, 0.08);
+}

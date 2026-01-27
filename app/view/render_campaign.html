@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1 style="color: white;">Rapport : {{ campaign_name }}</h1>
+    </div>
+    <a href="{{ url_for('campaign.export', id=campaign_id) }}" class="btn primary">📥 Export JSON</a>
+</section>
+
+<div class="dashboard-layout">
+    <div class="stats-section">
+        <h2 class="section-title" style="color: white;">🔍 Sources des API/fichiers importés</h2>
+        
+        {% for preuve in api_results %}
+            <div class="stat-card campaign-card">
+                <h3>Source : {{ preuve.url }}</h3>
+                <p><small class="url-display">Hash : {{ preuve.hash }}</small></p>
+                <hr class="separator">
+                <div class="leaks-container">
+                    {% for entite in preuve.entites %}
+                        <p>
+                            <strong>{{ type_labels[entite.type] or 'Donnée' }} :</strong> {{ entite.valeur }}
+                            <br><small>({{ entite.contexte }})</small>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="actions-section">
+        <h2 class="section-title" style="color: white;">🌐 Analyse Web</h2>
+        
+       {% for preuve in web_results %}
+            <div class="stat-card mini-card">
+                <p class="url-display">{{ preuve.url }}</p>
+                <details>
+                    <summary class="stat-link summary-small">Voir {{ preuve.entites|length }} entité(s)</summary>
+                    <div class="leaks-container">
+                        {% for entite in preuve.entites %}
+                            <p><strong>{{ entite.valeur }}</strong> ({{ entite.contexte }})</p>
+                        {% endfor %}
+                    </div>
+                </details>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

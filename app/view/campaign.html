@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="page-header">
+    <h1>Configurations de la campagne : {{ campaign_name }}</h1>
+</header>
+
+<form method="POST" action="{{ url_for('scrapping.run') }}" enctype="multipart/form-data">
+    <input type="hidden" name="campaign_id" value="{{ campaign_id }}">
+
+    <div class="boite-grise">
+        <h3>🔍 Elément à chercher</h3>
+        <p>Ajoutez ici les noms ou pseudos pour les APIs.</p>
+        
+        <div id="liste-pseudos">
+            {% if subjects %}
+                {% for subject in subjects %}
+                    <input type="text" name="subjects[]" value="{{ subject }}" class="mon-input" required>
+                {% endfor %}
+            {% else %}
+                <input type="text" name="subjects[]" value="{{ campaign_name }}" class="mon-input" required>
+            {% endif %}
+        </div>
+        
+        <button type="button" class="bouton-add" onclick="ajouterChamp('liste-pseudos', 'subjects[]', 'text')">Ajouter sujet</button>
+        
+        <div class="choix-api">
+            <input type="checkbox" name="use_git" value="yes" checked> <label>GitHub</label>
+            <input type="checkbox" name="use_wiki" value="yes" checked> <label>Wiki</label>
+        </div>
+    </div>
+
+    <div class="boite-grise">
+        <h3>🌐 Liens Web</h3>
+        <p>Mets des URLs pour chercher des IPs/Emails.</p>
+        <div id="liste-urls">
+            <input type="url" name="custom_urls[]" placeholder="https://..." class="mon-input">
+        </div>
+        <button type="button" class="bouton-add" onclick="ajouterChamp('liste-urls', 'custom_urls[]', 'url')">Ajouter URL</button>
+    </div>
+
+    <div class="boite-grise">
+        <h3>📂 Import de fichiers</h3>
+        <p>Téléchargez des fichiers (txt, json, csv) pour extraire des IPs/Emails.</p>
+        <div id="liste-fichiers">
+            <input type="file" name="files[]" class="mon-input" accept=".txt,.json,.csv">
+        </div>
+        <button type="button" class="bouton-add" onclick="ajouterChampFichier()">Ajouter un autre fichier</button>
+    </div>
+
+    <button type="submit" class="bouton-go">Lancer le scrapping</button>
+</form>
+
+<script>
+function ajouterChamp(divId, nom, type) {
+    const bloc = document.getElementById(divId);
+    const nouvelInput = document.createElement('input');
+    nouvelInput.type = type;
+    nouvelInput.name = nom;
+    nouvelInput.className = "mon-input";
+    bloc.appendChild(nouvelInput);
+}
+
+function ajouterChampFichier() {
+    const bloc = document.getElementById('liste-fichiers');
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.name = 'files[]';
+    input.className = "mon-input";
+    input.accept = ".txt,.json,.csv";
+    bloc.appendChild(input);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Corporation – {% block title %}Openstalk{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base/base.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout/header-nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout/main-footer.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/page-headers.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/data-table.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/tags.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/auth.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/campaign.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/campaign-result.css') }}">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="{{ url_for('dashboard') }}" class="logo">Cart Corporation – Openstalk</a>
+            </div>
+            
+            <div class="main-nav">
+                {% block show_nav %}
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('campaign.list_all') }}">Campagnes</a>
+                <a href="{{ url_for('campaign.list_sources') }}">Sources</a>
+                {% endblock %}
+            </div>
+            
+            <div>
+                {% block auth_menu %}
+                    <a href="{{ url_for('user.logout') }}">Déconnexion</a>
+                {% endblock %}
+            </div>
+        </nav>
+    </header>
+
+    <main>     
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cart Corporation. | <a href="{{ url_for('campaign.show_rgpd') }}">Politique RGPD</a></p>
+    </footer>
+</body>
+</html>

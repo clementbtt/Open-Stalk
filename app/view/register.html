@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block show_nav %}{% endblock %}
+
+{% block auth_menu %}{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <h2>Inscription</h2>
+        <p>Créez votre compte pour commencer la collecte OSINT.</p>
+
+        <form method="POST" action="{{ url_for('user.register') }}">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required placeholder="Nom d'utilisateur">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password" name="password" required placeholder="Mot de Passe">
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirmer le Mot de Passe</label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirmer le Mot de Passe">
+            </div>
+            
+            <button type="submit" class="btn primary">S'Inscrire</button>
+        </form>
+
+        <p class="auth-link-footer">
+            Déjà inscrit ? 
+            <a href="{{ url_for('user.show_login') }}">Se connecter ici</a>
+        </p>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

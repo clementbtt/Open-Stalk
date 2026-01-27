@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}Tableau de Bord{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <h1>🕵️ Tableau de Bord</h1>
+        <p>Aperçu rapide de l'activité de la plateforme et accès aux actions clés.</p>
+    </header>
+
+    <div class="dashboard-layout">
+        
+        <section class="stats-section">
+            <h2 class="section-title" style="color: white;">Statistiques Clés</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 class="stat-title secondary">Dernières Campagnes (5)</h3>
+                    <ul class="campaign-list">
+                        {% if campaigns %}
+                            {% for campaign in campaigns %}
+                                <li class="campaign-items">
+                                    <a href="{{ url_for('campaign.show_campaign_settings', id=campaign[0]) }}" class="campaign-item">
+                                        📁 {{ campaign[1] }}
+                                    </a>
+                                    <div class="campaign-actions"> 
+                                        <a href="{{ url_for('campaign.view_report', id=campaign[0]) }}" title="Voir rapport">📊</a>
+                                        <a href="{{ url_for('campaign.delete', id=campaign[0]) }}" 
+                                           class="icon-link delete" 
+                                           onclick="return confirm('Supprimer cette campagne ?');" 
+                                           title="Supprimer">🗑️
+                                        </a>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li class="empty-msg">Aucune campagne</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+                <div class="stat-card">
+                    <h3 class="stat-title secondary">Sources Totales ({{ stats.total_sources }})</h3>
+                    <div class="leaks-container" style="font-size: 0.85rem;">
+                        {% for type, count in stats.sources.items() %}
+                            <div><strong>{{ type }} :</strong> {{ count }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="stat-title secondary">Entités Indexées ({{ stats.total_entities }})</h3>
+                    <div class="leaks-container" style="font-size: 0.85rem;">
+                        {% for type, count in stats.entities.items() %}
+                            <div><strong>{{ type|capitalize }}s :</strong> {{ count }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="actions-section">
+            <h2 class="section-title" style="color: white;">Actions Rapides</h2>
+            <div class="actions-grid">
+                <div class="action-card-simple">
+                    <h3 style="color: white;">Nouvelle Campagne</h3>
+                    <form method="POST" action="{{ url_for('campaign.create') }}">
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="Nom de la campagne" required>
+                        </div>
+                        <button type="submit" class="btn primary btn-full">
+                            <span class="icon">➕</span> Créer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

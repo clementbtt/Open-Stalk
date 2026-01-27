@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block show_nav %}{% endblock %}
+
+{% block auth_menu %}{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <h2>Connexion</h2>
+        <p>Bienvenue sur Openstalk. Veuillez vous connecter.</p>
+        
+
+        <form method="POST" action="{{ url_for('user.check_authentication') }}">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required placeholder="Nom d'utilisateur">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password" name="password" required placeholder="Mot de Passe">
+            </div>
+            <button type="submit" class="btn primary">Se Connecter</button>
+        </form>
+
+        <p class="auth-link-footer">
+            Vous n'avez pas de compte ? 
+            <a href="{{ url_for('user.show_register') }}">S'inscrire ici</a>
+        </p>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

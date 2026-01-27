@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="page-header">
+    <h1>Toutes mes Campagnes</h1>
+</header>
+<div class="data-table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in campaigns %}
+            <tr>
+                <td>{{ c[1] }}</td>
+                <td class="table-actions">
+                    <a href="{{ url_for('campaign.view_report', id=c[0]) }}">📊 Rapport</a>
+                    <a href="{{ url_for('campaign.show_campaign_settings', id=c[0]) }}">⚙️ Config</a>
+                    <a href="{{ url_for('campaign.delete', id=c[0]) }}" class="delete">🗑️</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

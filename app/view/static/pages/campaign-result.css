@@ -1,0 +1,124 @@
+.campaign-summary {
+    margin-bottom: var(--spacing-lg);
+}
+
+.campaign-card {
+    margin-bottom: var(--spacing-md);
+    height: auto !important;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.profile-text h3 {
+    margin: 0;
+}
+
+.separator {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 15px 0;
+}
+
+.followers-list {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    list-style-position: inside;
+}
+
+.wiki-qid {
+    margin-bottom: 10px;
+}
+
+.wiki-content-box {
+    margin-top: 10px;
+    padding: 15px;
+    background: var(--color-light-bg);
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.mini-card {
+    margin-bottom: var(--spacing-sm);
+    height: auto !important;
+    padding: var(--spacing-sm) !important;
+}
+
+.mini-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dashboard-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; 
+    margin-top: 20px;
+}
+
+.stats-section {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actions-section { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.social-link {
+    text-decoration: none; 
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-link:hover {
+    transform: translateY(-2px); 
+    filter: brightness(0.9);
+    cursor: pointer;
+}
+
+.url-display {
+    font-size: 0.8rem;
+    word-break: break-all;
+    margin: 10px 0;
+    color: var(--color-secondary);
+}
+
+.summary-small {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.leaks-container {
+    font-size: 0.75rem;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+}
+
+.label-danger { color: var(--color-danger); }
+.label-primary { color: var(--color-primary); }
+
+details summary {
+    outline: none;
+    user-select: none;
+}

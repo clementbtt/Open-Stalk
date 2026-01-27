@@ -1,0 +1,26 @@
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-light-bg);
+    padding-bottom: var(--spacing-xs);
+}
