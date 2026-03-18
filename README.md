@@ -83,4 +83,4 @@ Des tests unitaires sont présents dans le projet. Pour les exécuter :
 * **Clément Boutet** _alias_ [@clementbtt](https://github.com/clementbtt)
 * **Raphaël Loric _alias_ [@Mxrphee](https://github.com/Mxrphee)** 
 * **Aïcha Sesay Lukumuena** 
-* **Théo Zeimet** 
+* **Théo Zeimet _alias_ [@THZeimet](https://github.com/THZeimet)** 
